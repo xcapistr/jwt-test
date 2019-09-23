@@ -1,9 +1,29 @@
+### Get data from server
+
 GET http://localhost:3000/posts
-Authorization: Bearer <Token>
+Authorization: Bearer <access token>
 
-###
+### Delete refresh token
 
-POST http://localhost:3000/login
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+    "token": "<refresh token>"
+}
+
+### Generate access token with refresh token
+
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+    "token": "<refresh token>"
+}
+
+### Generate refresh token (and access token)
+
+POST http://localhost:4000/login
 Content-Type: application/json
 
 {
